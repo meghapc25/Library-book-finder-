@@ -1,0 +1,51 @@
+books = [ 
+{"id":1, "name": "python basics", "available": True},
+{"id":2, "name": "cyber securirty", "available": True},
+{"id":3, "name": "Data science", "available": False}] 
+
+from books import books 
+
+while True:
+    print("Library book Finder")
+    print("1. View Books")
+    print("2. Search Book")
+    print("3. Exit")
+
+    choice = input("Enter your choice:  ") 
+
+    if choice == "1":
+         print()
+         print("Books in library:")
+
+         for book in books:
+          if book["available"]:
+            status = "Available"
+          else:
+            status = "Issued"
+          print(book["id"], "-", book["name"],"-" ,status)
+
+    elif choice == "2":
+        name = input("Enter book name: ")
+        found = False 
+
+        for book in books:
+          if name.lower() in book["name"].lower():
+            print()
+            print("book found!")
+            print("ID:",book["id"])
+            print("name:",book["name"])
+          if book["available"]:
+            print("Status: Available")
+          else :
+            print("Status: Issued")   
+          found = True 
+
+        if found == False :
+             print("Book not found:")
+
+    elif choice == "3" :
+          print("Thank you !")
+          break 
+
+    else:
+      print("Invaild choice")                            
